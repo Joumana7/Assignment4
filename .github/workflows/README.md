@@ -230,3 +230,5 @@ This repository is part of an MLOps assignment focused on implementing automated
 
 Joumana  
 Student ID: 202202100
+
+CI pipeline test
