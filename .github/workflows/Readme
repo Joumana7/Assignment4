@@ -1,0 +1,116 @@
+# MLOps Assignment 4 – ML CI Pipeline
+
+This repository implements a GitHub Actions Continuous Integration (CI) pipeline for validating a Machine Learning project environment.
+
+The purpose of this assignment is to move from manual execution to automated validation by fixing and completing a GitHub Actions pipeline.
+
+---
+
+## Project Objective
+
+The CI pipeline automatically performs several tasks to validate the machine learning environment and project configuration.
+
+The workflow performs the following steps:
+
+- Set up a Python environment
+- Install project dependencies
+- Perform a linter check
+- Run a dry test to verify the ML environment
+- Upload the project documentation as a GitHub artifact
+
+---
+
+## Repository Structure
+
+project-root/
+
+.github/  
+&nbsp;&nbsp;&nbsp;&nbsp;workflows/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ml-pipeline.yml  
+
+requirements.txt  
+README.md  
+train.py (or other ML training code)
+
+---
+
+## CI Pipeline Workflow
+
+The GitHub Actions workflow performs the following tasks:
+
+### 1. Checkout Repository
+The workflow checks out the repository code so that the pipeline can access all project files.
+
+### 2. Setup Python Environment
+Python 3.10 is installed using the GitHub Actions setup-python action.
+
+### 3. Install Dependencies
+All project dependencies are installed using:
+
+pip install -r requirements.txt
+
+This ensures the environment contains all required machine learning libraries.
+
+### 4. Linter Check
+A linter step is included to validate the project code structure and style.
+
+### 5. Model Environment Dry Test
+The pipeline runs the following command:
+
+python -c "import torch; print('Model environment ready!')"
+
+This verifies that the machine learning environment is properly configured and that the required libraries are installed.
+
+### 6. Upload Project Documentation
+The workflow uploads the file:
+
+README.md
+
+as a GitHub artifact named:
+
+project-doc
+
+This artifact can be downloaded from the GitHub Actions run.
+
+---
+
+## Workflow Trigger
+
+The GitHub Actions workflow is configured to run on:
+
+- Push to all branches except main
+- Pull requests
+
+This ensures that any new changes to the repository are automatically validated.
+
+---
+
+## Technologies Used
+
+This project uses the following technologies:
+
+- Python 3.10
+- GitHub Actions
+- PyTorch
+- MLflow
+- Scikit-learn
+- TensorFlow
+- Pandas
+- NumPy
+
+---
+
+## Expected CI Result
+
+After pushing code to the repository:
+
+1. GitHub Actions will automatically run the workflow.
+2. The pipeline should complete successfully.
+3. The workflow run will appear green in the Actions tab.
+4. An artifact named project-doc will be generated.
+
+---
+
+## Author
+
+MLOps Course Assignment 4
