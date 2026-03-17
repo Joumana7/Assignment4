@@ -1,0 +1,6 @@
+torch
+flake8
+pytest
+numpy
+pandas
+scikit-learn
